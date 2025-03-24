@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    #box1{
+        padding: 40px 50px;
+        background-color: rgba(0, 85, 255, 0.36);
+    }
+    #box2{
+        padding: 20px 40px;
+        background-color: rgba(255, 0, 0, 0.603);
+    }
+    #box3{
+        padding: 10px 20px;
+        background-color: rgba(47, 255, 0, 0.833);
+    }
+</style>
+<body>
+    <h1 id="heading">Event Propagation</h1>
+    <p>Event Propagation determines that how event moves through Dom hierarchy</p>
+
+    <h4>Event Bubbling</h4>
+    <p>Event starts from target element and moves up to the root element</p>
+    <h4>Event Capturing</h4>
+    <p>Event starts from root element and moves down to the target element</p>
+
+
+    <div  id="box1">
+        div1
+        <div  id="box2">
+            div2
+            <div  id="box3">
+                div3
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+    const box1=document.getElementById('box1')
+    const box2=document.getElementById('box2')
+    const box3=document.getElementById('box3')
+
+    //event capturing
+    box1.addEventListener('click',()=>alert('div1'),true)
+    box2.addEventListener('click',()=>alert('div2'),true)
+    box3.addEventListener('click',()=>alert('div3'),true)
+
+
+    //event bubbling
+    box1.addEventListener('click',()=>alert('div1'),false)
+    box2.addEventListener('click',()=>alert('div2'),false)
+    box3.addEventListener('click',()=>alert('div3'),false)
+
+
+    //stop propagation
+    box1.addEventListener('click',(e)=>{
+        alert('div1')
+    })
+    box2.addEventListener('click',(e)=>{
+        alert('div2')
+        e.stopPropagation()
+    })
+    box3.addEventListener('click',(e)=>{
+        alert('div3')
+    })
+
+    //e.target 
+    const heading = document.getElementById('heading');
+    heading.addEventListener('click',(e)=>{
+        console.log(e.target)
+        console.log(e.target.id)
+        console.log(e.target.tagName)
+    })
+
+</script>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>ATTACHING EVENT LISTNERS</h1>
+    <h3>INLINE WAY</h3>
+    <p onclick="this.style.border='1px solid black'">attach event with element inline to the element tag</p>
+    <h3>Add Event Listner</h3>
+    <p id="secondPara">Method used to attach event to an element without using inline way</p>
+</body>
+<script>
+    const secondPara = document.getElementById('secondPara');
+    function sample1(){
+        console.log("sample1")
+    }
+    function sample2(){
+        console.log("sample2")
+    }
+    secondPara.addEventListener('click',(e)=>{
+        secondPara.style.backgroundColor="yellow"
+    })
+    secondPara.addEventListener('click',sample1)
+    secondPara.addEventListener('click',sample2)
+
+    
+    setTimeout(()=>{
+        secondPara.removeEventListener('click',sample1)
+    },2000)
+</script>
+</html>

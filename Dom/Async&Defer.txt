@@ -1,0 +1,20 @@
+HTML parsing
+
+- HTML document is parsed in a way that it starts from top and ends in the bottom 
+- Top to bottom approach
+- So its good to place the style above the document and script files below the document. 
+- since script can block the loading of html.
+
+- So if you are placing the script above . there is a chance of blockage. 
+- To solve the issue use async or defer.
+
+
+Async :-
+<script src="script.js" async></script>
+- continues html parsing while downloading script
+- Extecutes soon after it is downloaded
+
+Defer :-
+<script src="script.js" defer></script>
+- continues html parsing while downloading the script
+- runs only after html fully parsed.

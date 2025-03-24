@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="divclass">div1</div>
+    <div class="divclass">div2</div>
+    <div class="divclass">div3</div>
+    <div class="divclass">div4</div>
+    <div class="divclass">div5</div>
+
+    <p class="pclass">p1</p>
+    <p class="pclass">p2</p>
+    <p>p3</p>
+
+    <span>dfsdsdsfdsf</span>
+    <span id="spanId">ajmal</span>
+    <br>
+    <button onclick="handleClick()">click here to change span color</button>
+    <br><br>
+    <button onclick="handleDivClick()">click here to change divs color</button>
+
+
+    <p onclick="loremClick(this)" id="lorem">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam accusantium voluptas consequatur animi ex, voluptatum soluta aperiam recusandae fugit dolorum natus dolores ullam autem perferendis maiores sed officiis quidem molestiae.</p>
+
+    <button onclick="handleBorder()">click to give border</button>
+    
+</body>
+<script>
+    const sample = document.querySelector('#spanId');
+    const sample2 = document.querySelectorAll('div')[0]  // select the first div in this html document
+    const sample3 = document.querySelectorAll('.divclass');
+    const loremPara = document.getElementById('lorem')
+    const sample4 = document.getElementsByClassName('divclass')
+    function handleClick(){
+        sample.style.backgroundColor="blue"
+    }
+
+    function handleDivClick(){
+        sample3.forEach((element)=>element.style.backgroundColor="yellow")
+    }
+
+    function loremClick(object){
+        object.style.backgroundColor="green"   // we can pass this i.e, this represent the element were click event happens. we can directly change values
+        loremPara.style.border="1px solid black" // aslo works
+    }
+
+    function handleBorder(){
+        sample4[1].style.border="1px solid black"
+    }
+
+</script>
+</html>
+
+<!-- Query Selectors -->
+ <!-- 
+      **query selector**
+      query selector can be used to select Html element. were the selected element is the 
+      first matched element with the css selector (i.e tagName like div,p,span... or className specify by prepending (.) 
+      or by id specifying by prepending (#))
+
+      **querySelectorAll**
+      query Selector All Returns a NodeList (like an array) of all elements that match the CSS selector.
+  -->
