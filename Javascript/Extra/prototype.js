@@ -8,5 +8,9 @@
 const obj={
     name:"ajmal"
 }
+const obj2={
+    age:10
+}
 
-console.log(obj.__proto__)
+obj.__proto__ = obj2
+console.log(obj.__proto__.__proto__)
