@@ -1,0 +1,40 @@
+1. Why is Javascript synchronous and single threaded called?
+- Single Threaded : - only one thread. run one operation at a time
+- synchronous : - execute line by line . after execution of line 1 then goes to 2 then three . cant go in 1-3-2 order.
+
+2. Execution Context ?
+- Javascript creates a Execution Context when it runs a script . which manages the code execution.
+- It has two phases memory phase and execution phase . also known as Variable Environment and Thread of Execution.
+- In first phase the script will be read line by line and memory location will be allocated to the Variables and functions.
+- In the second phase once more the script read line by line and the value to the variable is assigned (before that its placed
+   with placeHolder undefined) and the function call happens which then creates a new function execution context.
+
+- Global execution Context - The Execution Context created when the script starts running
+- Function Execution Context - created when a function is called.
+
+
+3. What is Call Stack ?
+- Call stack is datastructure which is used by Javascript to keep track of function calls.
+- function called => pushed to the stack
+- function completed execution => popped out from the stack
+  
+
+4. What is scope ?
+- From where to where a variable can be accessed
+--Global - accessible from anywhere
+--Function - accessible inside the function
+--block - accessible inside the braces {}
+
+5. What is Lexical Scope ?
+- Memory space of current execution Context + its parent Lexical Environment.
+function a(){
+   const name="ajmal"
+   function b(){
+      function c(){
+         console.log(name)
+      }
+      c()
+   }
+   b()
+}
+- check the memory of fn c if no variable name , goes to the parent b , and so on . until it points to null
